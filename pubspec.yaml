@@ -33,7 +33,8 @@ dependencies:
 #  android_alarm_manager: any
   app_settings: any
   badges: any
-  barcode_scan2: any
+  # barcode_scan2: any
+  mobile_scanner: ^5.0.0
   cached_network_image: any
   #  call_log: any
   change_app_package_name: any
