@@ -34,7 +34,7 @@ dependencies:
   app_settings: any
   badges: any
   # barcode_scan2: any
-  mobile_scanner: ^3.5.6
+#  mobile_scanner: ^3.5.6
   cached_network_image: any
   #  call_log: any
   change_app_package_name: any
@@ -121,3 +121,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+dependency_overrides:
+  intl: 0.20.2

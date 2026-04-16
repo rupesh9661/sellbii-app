@@ -168,12 +168,13 @@ class Helper {
   }
 
   Future<String> barcodeScan() async {
-      final result = await Navigator.of(context).push<String>(
-      MaterialPageRoute(
-        builder: (_) => const BarcodeScannerScreen(),
-      ),
-    );
-    return result?.trimRight() ?? '';
+    //   final result = await Navigator.of(context).push<String>(
+    //   MaterialPageRoute(
+    //     builder: (_) => const BarcodeScannerScreen(),
+    //   ),
+    // );
+    // return result?.trimRight() ?? '';
+    return '';
   }
 
   //function for formatting invoice
