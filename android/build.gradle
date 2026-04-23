@@ -1,12 +1,12 @@
 buildscript {
-    ext.kotlin_version = '1.6.10'
+    ext.kotlin_version = '2.0.21'
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.3'
+        classpath 'com.android.tools.build:gradle:8.5.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -14,7 +14,18 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
+    }
+    configurations.all {
+        resolutionStrategy.capabilitiesResolution.withCapability('com.google.collections:google-collections') {
+            selectHighestVersion()
+        }
+        resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == 'com.google.guava' && details.requested.name == 'guava') {
+                details.useVersion '33.3.1-jre'
+                details.because 'Force JRE variant to avoid android/jre variant ambiguity'
+            }
+        }
     }
 }
 
@@ -26,6 +37,6 @@ subprojects {
     project.evaluationDependsOn(':app')
 }
 
-task clean(type: Delete) {
+tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
