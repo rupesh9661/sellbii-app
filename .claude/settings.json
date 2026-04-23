@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk '/^  [a-z]/{pkg=$1; sub\\(/:$/,\"\",pkg\\)} /version:/{print pkg, $2}')"
+    ]
+  }
+}

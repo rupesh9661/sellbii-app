@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.5.0+1
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -31,14 +31,14 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
 
 #  android_alarm_manager: any
-  app_settings: any
+  app_settings: 5.1.0
   badges: any
   # barcode_scan2: any
 #  mobile_scanner: ^3.5.6
   cached_network_image: any
   #  call_log: any
   change_app_package_name: any
-  connectivity: any
+  connectivity_plus: any
   cron: any
   cupertino_icons: any
   date_time_picker: any
@@ -47,7 +47,7 @@ dependencies:
   #  flutter_phone_state: any
   #  flutter_polyline_points: any
   fluttertoast: any
-  geolocator: 8.2.1
+  geolocator: any
   get_ip_address: any
   google_fonts: any
   google_maps_flutter: any
@@ -57,15 +57,15 @@ dependencies:
   material_design_icons_flutter: any
   path_provider: any
   pdf: any
-  permission_handler: 9.0.2
-  printing: 5.9.1
+  permission_handler: any
+  printing: any
   provider: any
   qr: any
 #  qr_flutter: any
   sqflite: any
   shared_preferences: any
   search_choices: any
-  share: any
+  share_plus: any
   syncfusion_flutter_datepicker: any
   url_launcher: any
   video_player: any

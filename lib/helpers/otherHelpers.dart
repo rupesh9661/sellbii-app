@@ -4,7 +4,7 @@ import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 // import 'package:call_log/call_log.dart';
-import 'package:connectivity/connectivity.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cron/cron.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html_to_pdf/flutter_html_to_pdf.dart';
@@ -15,7 +15,7 @@ import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:permission_handler/permission_handler.dart';
 import 'package:printing/printing.dart';
-import 'package:share/share.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../config.dart';
@@ -99,8 +99,8 @@ class Helper {
   //check internet connectivity
   Future<bool> checkConnectivity() async {
     var connectivityResult = await (Connectivity().checkConnectivity());
-    if (connectivityResult == ConnectivityResult.mobile ||
-        connectivityResult == ConnectivityResult.wifi) {
+    if (connectivityResult.contains(ConnectivityResult.mobile) ||
+        connectivityResult.contains(ConnectivityResult.wifi)) {
       return true;
     } else {
       return false;
@@ -266,7 +266,7 @@ class Helper {
     var generatedPdfFile = await FlutterHtmlToPdf.convertFromHtmlContent(
         _invoice, targetPath.path, targetFileName);
 
-    await Share.shareFiles([generatedPdfFile.path]);
+    await SharePlus.instance.shareXFiles([XFile(generatedPdfFile.path)]);
     //to get file path use generatedPdfFile.path
   }
 

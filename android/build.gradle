@@ -37,6 +37,21 @@ subprojects {
     project.evaluationDependsOn(':app')
 }
 
+// Inject namespace for old plugins that predate AGP 8.x namespace requirement
+subprojects {
+    afterEvaluate { project ->
+        if (project.hasProperty('android')) {
+            def namespaceMap = [
+                'flutter_html_to_pdf': 'com.afur.flutter_html_to_pdf',
+            ]
+            def ns = namespaceMap[project.name]
+            if (ns && !project.android.hasProperty('namespace')) {
+                project.android.namespace = ns
+            }
+        }
+    }
+}
+
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
